@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter;
+    background-color: #FCF5FF;
+}
+
+#header {
+    width: 100wv;
+    height: 80px;
+    padding: 0 46px;
+    background-color: #EEA7B9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#pageTitle {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+}
+
+#searchBar {
+    width: 352px;
+    height: 43px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+#trendingContainer, #upcomingContainer {
+    margin: 22px 46px;
+}
+
+.trendingAnimeList, .upcomingAnimeList {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-top: 22px;
+}
+
+.trendingAnimeList .animePoster, .upcomingAnimeList .animePoster {
+    max-width: 230px;
+    max-height: 300px;
+    display: inline-block;
+    background-color: #c1c1c1;
+    border-radius: 10px;
+    margin-right: 35px;
+    position: relative;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.trendingAnimeList .animePoster .animeImg, .upcomingAnimeList .animePoster .animeImg {
+    max-height: 300px;
+    max-width: 230px;
+    cursor: pointer;
+}
+
+.trendingAnimeList .animePoster:last-child, .upcomingAnimeList .animePoster:last-child {
+    margin-right: 0px;
+}
+
+#topAnimeContainer {
+    margin: 22px 46px;
+}
+
+.topAnimeList {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-top: 22px;
+}
+
+.topAnimeList  .animePosterSmall {
+    max-width: 180px;
+    max-height: 260px;
+    /* background-color: #c1c1c1; */
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.topAnimeList  .animePosterSmall .animeImg {
+    max-width: 180px;
+    max-height: 260px;
+    cursor: pointer;
+}
+.score {
+    min-width: 40px;
+    min-height: 22px;
+    background-color: white;
+    top: 9px;
+    right: 9px;
+    border-radius: 5px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 2px;
+    cursor: pointer;
+}
+
+.inactive {
+    display: none;
+}
