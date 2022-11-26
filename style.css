@@ -23,6 +23,7 @@ body {
     font-size: 40px;
     font-weight: 700;
     color: white;
+    cursor: pointer;
 }
 
 #searchBar {
@@ -42,14 +43,14 @@ h2 {
     margin: 22px 46px;
 }
 
-.trendingAnimeList, .upcomingAnimeList {
+.trendingAnimeList, .upcomingAnimeList, .anime-recommended-list {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     margin-top: 22px;
 }
 
-.trendingAnimeList .animePoster, .upcomingAnimeList .animePoster {
+.trendingAnimeList .animePoster, .upcomingAnimeList .animePoster, .anime-recommended-list .animePoster {
     max-width: 230px;
     max-height: 300px;
     display: inline-block;
@@ -61,7 +62,7 @@ h2 {
     overflow: hidden;
 }
 
-.trendingAnimeList .animePoster .animeImg, .upcomingAnimeList .animePoster .animeImg {
+.trendingAnimeList .animePoster .animeImg, .upcomingAnimeList .animePoster .animeImg, .anime-recommended-list .animePoster .animeImg {
     max-height: 300px;
     max-width: 230px;
     cursor: pointer;
@@ -115,4 +116,73 @@ h2 {
 
 .inactive {
     display: none;
+}
+
+
+/*Anime Page*/
+#animeDetailContainer {
+    margin: 22px 46px;
+}
+
+
+#anime-images, #anime-recommended {
+    margin: 22px 46px;
+}
+
+#anime-img {
+    width: 400px;
+    min-height: 600px;
+    margin-right: 46px;
+    display: inline-block;
+    /*background-color: #c3c3c3;*/
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.animeImg {
+    height: 100%;
+    width: 100%;
+}
+
+
+#anime-info {
+    display: inline-block;
+    max-width: calc(100vw - 640px);
+    vertical-align: top;
+}
+
+h4 {
+    margin: 10px 0 20px;
+    color: #6d6d6d;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+p {
+    font-size: 20px;
+    text-align: justify;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin: 12px 20px 12px 0;
+}
+
+.anime-genres,  .anime-themes {
+    display: flex;
+    align-items: center;
+}
+
+.animeGenre, .animeTheme{
+    display: inline-block;
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 500;
+    margin-right: 12px;
 }
