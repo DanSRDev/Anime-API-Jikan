@@ -43,14 +43,15 @@ h2 {
     margin: 22px 46px;
 }
 
-.trendingAnimeList, .upcomingAnimeList, .anime-recommended-list {
+.trendingAnimeList, .upcomingAnimeList, .anime-recommended-list, .anime-images-list  {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     margin-top: 22px;
 }
 
-.trendingAnimeList .animePoster, .upcomingAnimeList .animePoster, .anime-recommended-list .animePoster {
+.trendingAnimeList .animePoster, .upcomingAnimeList .animePoster,
+.anime-recommended-list .animePoster, .anime-images-list .animePoster {
     max-width: 230px;
     max-height: 300px;
     display: inline-block;
@@ -62,7 +63,8 @@ h2 {
     overflow: hidden;
 }
 
-.trendingAnimeList .animePoster .animeImg, .upcomingAnimeList .animePoster .animeImg, .anime-recommended-list .animePoster .animeImg {
+.trendingAnimeList .animePoster .animeImg, .upcomingAnimeList .animePoster .animeImg, 
+.anime-recommended-list .animePoster .animeImg, .anime-images-list .animePoster .animeImg {
     max-height: 300px;
     max-width: 230px;
     cursor: pointer;
@@ -72,7 +74,7 @@ h2 {
     margin-right: 0px;
 }
 
-#topAnimeContainer {
+#topAnimeContainer, #searchAnimeContainer {
     margin: 22px 46px;
 }
 
@@ -83,7 +85,14 @@ h2 {
     margin-top: 22px;
 }
 
-.topAnimeList  .animePosterSmall {
+.searchAnimeList {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, 180px);
+    margin-top: 22px;
+}
+
+.topAnimeList  .animePosterSmall, .searchAnimeList  .animePosterSmall {
     max-width: 180px;
     max-height: 260px;
     /* background-color: #c1c1c1; */
@@ -93,7 +102,7 @@ h2 {
     justify-content: center;
 }
 
-.topAnimeList  .animePosterSmall .animeImg {
+.topAnimeList  .animePosterSmall .animeImg, .searchAnimeList  .animePosterSmall .animeImg {
     max-width: 180px;
     max-height: 260px;
     cursor: pointer;

@@ -1,12 +1,13 @@
 /* Header */
 const headerTitle = document.getElementById('pageTitle');
-
+const searchBar = document.getElementById('searchBar');
 
 /*Containers*/
 
 const trendingContainer = document.getElementById('trendingContainer');
 const topAnimeContainer = document.getElementById('topAnimeContainer');
 const upcomingContainer = document.getElementById('upcomingContainer');
+const searchAnimeContainer = document.getElementById('searchAnimeContainer');
 
 /*Anime Details*/
 
@@ -25,4 +26,6 @@ const animeRecommendedList = document.querySelector('.anime-recommended-list');
 const trendingAnimeList = document.querySelector('.trendingAnimeList');
 const topAnimeList = document.querySelector('.topAnimeList');
 const upcomingAnimeList = document.querySelector('.upcomingAnimeList');
+const searchAnimeList = document.querySelector('.searchAnimeList');
+
 

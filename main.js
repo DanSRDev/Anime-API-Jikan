@@ -97,7 +97,15 @@ async function createImagesList(id, container) {
     const images = data.data;
 
     images.forEach( image => {
+        const animeContainer = document.createElement('div');
+        animeContainer.classList.add('animePoster');
+        
+        const animeImg = document.createElement('img');
+        animeImg.setAttribute('src', image.jpg.large_image_url);
+        animeImg.classList.add('animeImg')
 
+        animeContainer.appendChild(animeImg);
+        container.appendChild(animeContainer);
     })
 }
 
@@ -168,7 +176,7 @@ async function getAnimeDetail(id) {
 
     createGenresList(anime, animeGenres);
     createThemesList(anime, animeThemes);
-    // createImagesList(id, animeImagesList);
+    createImagesList(id, animeImagesList);
     createRecommendedList(id, animeRecommendedList);
 
 
@@ -178,4 +186,18 @@ async function getAnimeDetail(id) {
     animeInfoContainer.appendChild(animeDescription);
     animeInfoContainer.appendChild(animeGenres);
     animeInfoContainer.appendChild(animeThemes);
+}
+
+async function getAnimeSearch(query) {
+    searchAnimeList.innerHTML='';
+    const { data } = await api("anime", {
+        params: {
+            'q': query,
+            'sfw':true,
+        }
+    })
+
+    const animes = data.data;
+
+    createTopAnimeList(animes, searchAnimeList);
 }
