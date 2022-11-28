@@ -166,6 +166,9 @@ async function getAnimeDetail(id) {
     const animeTitle = document.createElement('h2');
     animeTitle.innerText=anime.title;
     const animeOriginalTitle = document.createElement('h4');
+    const animeScore = document.createElement('div');
+    animeScore.classList.add('animeScore');
+    animeScore.innerText = `⭐${anime.score}`;
     animeOriginalTitle.innerText=anime.title_japanese;
     const animeDescription = document.createElement('p');
     animeDescription.innerText = anime.synopsis;
@@ -183,6 +186,7 @@ async function getAnimeDetail(id) {
     animeImgContainer.appendChild(animeImg);
     animeInfoContainer.appendChild(animeTitle);
     animeInfoContainer.appendChild(animeOriginalTitle);
+    animeInfoContainer.appendChild(animeScore);
     animeInfoContainer.appendChild(animeDescription);
     animeInfoContainer.appendChild(animeGenres);
     animeInfoContainer.appendChild(animeThemes);

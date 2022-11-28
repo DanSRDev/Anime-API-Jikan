@@ -64,11 +64,17 @@ h2 {
 }
 
 .trendingAnimeList .animePoster .animeImg, .upcomingAnimeList .animePoster .animeImg, 
-.anime-recommended-list .animePoster .animeImg, .anime-images-list .animePoster .animeImg {
+.anime-recommended-list .animePoster .animeImg {
     max-height: 300px;
     max-width: 230px;
     cursor: pointer;
 }
+
+.anime-images-list .animePoster .animeImg {
+    max-height: 300px;
+    max-width: 230px;
+}
+
 
 .trendingAnimeList .animePoster:last-child, .upcomingAnimeList .animePoster:last-child {
     margin-right: 0px;
@@ -95,11 +101,12 @@ h2 {
 .topAnimeList  .animePosterSmall, .searchAnimeList  .animePosterSmall {
     max-width: 180px;
     max-height: 260px;
-    /* background-color: #c1c1c1; */
+    /*background-color: #c1c1c1; */
     border-radius: 10px;
     position: relative;
     display: flex;
     justify-content: center;
+    margin: auto;
 }
 
 .topAnimeList  .animePosterSmall .animeImg, .searchAnimeList  .animePosterSmall .animeImg {
@@ -123,6 +130,23 @@ h2 {
     cursor: pointer;
 }
 
+.animeScore {
+    min-width: 112px;
+    min-height: 64px;
+    background-color: white;
+    top: 0;
+    right: 0;
+    border-radius: 15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    font-size: 42px;
+    font-weight: 500;
+}
+
 .inactive {
     display: none;
 }
@@ -140,7 +164,6 @@ h2 {
 
 #anime-img {
     width: 400px;
-    min-height: 600px;
     margin-right: 46px;
     display: inline-block;
     /*background-color: #c3c3c3;*/
@@ -159,6 +182,7 @@ h2 {
     display: inline-block;
     max-width: calc(100vw - 640px);
     vertical-align: top;
+    position: relative;
 }
 
 h4 {
