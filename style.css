@@ -39,7 +39,7 @@ h2 {
     font-weight: 500;
 }
 
-#trendingContainer, #upcomingContainer {
+#trendingContainer, #upcomingContainer, #anime-images, #anime-recommended {
     margin: 22px 46px;
 }
 
@@ -52,6 +52,7 @@ h2 {
 
 .trendingAnimeList .animePoster, .upcomingAnimeList .animePoster,
 .anime-recommended-list .animePoster, .anime-images-list .animePoster {
+    min-width: 180px;
     max-width: 230px;
     max-height: 300px;
     display: inline-block;
@@ -76,7 +77,8 @@ h2 {
 }
 
 
-.trendingAnimeList .animePoster:last-child, .upcomingAnimeList .animePoster:last-child {
+.trendingAnimeList .animePoster:last-child, .upcomingAnimeList .animePoster:last-child, 
+.anime-images-list .animePoster:last-child, .anime-recommended-list .animePoster:last-child  {
     margin-right: 0px;
 }
 
@@ -99,19 +101,18 @@ h2 {
 }
 
 .topAnimeList  .animePosterSmall, .searchAnimeList  .animePosterSmall {
-    max-width: 180px;
-    max-height: 260px;
+    max-width: 200px;
+    min-height: 260px;
     /*background-color: #c1c1c1; */
-    border-radius: 10px;
     position: relative;
-    display: flex;
-    justify-content: center;
+    display: inline-block;
     margin: auto;
 }
 
 .topAnimeList  .animePosterSmall .animeImg, .searchAnimeList  .animePosterSmall .animeImg {
     max-width: 180px;
     max-height: 260px;
+    border-radius: 10px;
     cursor: pointer;
 }
 .score {
@@ -130,23 +131,6 @@ h2 {
     cursor: pointer;
 }
 
-.animeScore {
-    min-width: 112px;
-    min-height: 64px;
-    background-color: white;
-    top: 0;
-    right: 0;
-    border-radius: 15px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 5px;
-    font-size: 42px;
-    font-weight: 500;
-}
-
 .inactive {
     display: none;
 }
@@ -154,11 +138,6 @@ h2 {
 
 /*Anime Page*/
 #animeDetailContainer {
-    margin: 22px 46px;
-}
-
-
-#anime-images, #anime-recommended {
     margin: 22px 46px;
 }
 
@@ -203,6 +182,23 @@ h3 {
     font-size: 25px;
     font-weight: 500;
     margin: 12px 20px 12px 0;
+}
+
+.animeScore {
+    min-width: 112px;
+    min-height: 64px;
+    background-color: white;
+    top: 0;
+    right: 0;
+    border-radius: 15px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    font-size: 42px;
+    font-weight: 500;
 }
 
 .anime-genres,  .anime-themes {

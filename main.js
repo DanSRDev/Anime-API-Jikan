@@ -5,6 +5,15 @@ const api = axios.create({
     },
 });
 
+const lazyLoader = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+            const url = entry.target.getAttribute('data-img');
+            entry.target.setAttribute('src', url);
+        }
+    })
+})
+
 function createAnimeList(animes, container, stars= true) {
     container.innerHTML = '';
 
@@ -14,11 +23,13 @@ function createAnimeList(animes, container, stars= true) {
         
         const animeImg = document.createElement('img');
         animeImg.setAttribute('alt', anime.title);
-        animeImg.setAttribute('src', anime.images.jpg.large_image_url);
+        animeImg.setAttribute('data-img', anime.images.jpg.large_image_url);
         animeImg.classList.add('animeImg')
         animeContainer.addEventListener('click', () => {
             location.hash = `#anime=${anime.mal_id}`;
         });
+
+        lazyLoader.observe(animeImg);
 
         if(stars){
             const score = document.createElement('div');
@@ -41,11 +52,13 @@ function createTopAnimeList(animes, container) {
         
         const animeImg = document.createElement('img');
         animeImg.setAttribute('alt', anime.title);
-        animeImg.setAttribute('src', anime.images.jpg.large_image_url);
+        animeImg.setAttribute('data-img', anime.images.jpg.large_image_url);
         animeImg.classList.add('animeImg');
         animeContainer.addEventListener('click', () => {
             location.hash = `#anime=${anime.mal_id}`;
         });
+
+        lazyLoader.observe(animeImg);
 
         const score = document.createElement('div');
         score.classList.add('score');
@@ -92,7 +105,7 @@ function createThemesList(anime, container) {
 }
 
 async function createImagesList(id, container) {
-    animeImagesList.innerHTML = '';
+    container.innerHTML = '';
     const { data } = await api(`anime/${id}/pictures`);
     const images = data.data;
 
@@ -101,8 +114,10 @@ async function createImagesList(id, container) {
         animeContainer.classList.add('animePoster');
         
         const animeImg = document.createElement('img');
-        animeImg.setAttribute('src', image.jpg.large_image_url);
+        animeImg.setAttribute('data-img', image.jpg.large_image_url);
         animeImg.classList.add('animeImg')
+
+        lazyLoader.observe(animeImg);
 
         animeContainer.appendChild(animeImg);
         container.appendChild(animeContainer);
@@ -120,11 +135,13 @@ async function createRecommendedList(id, container) {
         
         const animeImg = document.createElement('img');
         animeImg.setAttribute('alt', anime.title);
-        animeImg.setAttribute('src', anime.entry.images.jpg.large_image_url);
+        animeImg.setAttribute('data-img', anime.entry.images.jpg.large_image_url);
         animeImg.classList.add('animeImg')
         animeContainer.addEventListener('click', () => {
             location.hash = `#anime=${anime.entry.mal_id}`;
         });
+        
+        lazyLoader.observe(animeImg);
 
         animeContainer.appendChild(animeImg);
         container.appendChild(animeContainer);
@@ -167,8 +184,11 @@ async function getAnimeDetail(id) {
     animeTitle.innerText=anime.title;
     const animeOriginalTitle = document.createElement('h4');
     const animeScore = document.createElement('div');
-    animeScore.classList.add('animeScore');
-    animeScore.innerText = `⭐${anime.score}`;
+    if(anime.score != null){
+        animeScore.classList.add('animeScore');
+        animeScore.innerText = `⭐${anime.score}`;
+    }
+    
     animeOriginalTitle.innerText=anime.title_japanese;
     const animeDescription = document.createElement('p');
     animeDescription.innerText = anime.synopsis;
