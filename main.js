@@ -180,6 +180,8 @@ async function getAnimeDetail(id) {
     animeImg.classList.add('animeImg');
     
     animeInfoContainer.innerHTML='';
+    const animeDetailHeader = document.createElement('div');
+    animeDetailHeader.classList.add('animeDetailHeader');
     const animeTitle = document.createElement('h2');
     animeTitle.innerText=anime.title;
     const animeOriginalTitle = document.createElement('h4');
@@ -204,9 +206,12 @@ async function getAnimeDetail(id) {
 
 
     animeImgContainer.appendChild(animeImg);
-    animeInfoContainer.appendChild(animeTitle);
+    animeDetailHeader.appendChild(animeTitle);
+    animeDetailHeader.appendChild(animeScore)
+    //animeInfoContainer.appendChild(animeTitle);
+    animeInfoContainer.appendChild(animeDetailHeader);
     animeInfoContainer.appendChild(animeOriginalTitle);
-    animeInfoContainer.appendChild(animeScore);
+    //animeInfoContainer.appendChild(animeScore);
     animeInfoContainer.appendChild(animeDescription);
     animeInfoContainer.appendChild(animeGenres);
     animeInfoContainer.appendChild(animeThemes);
