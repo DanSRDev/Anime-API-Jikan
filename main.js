@@ -106,8 +106,15 @@ function createThemesList(anime, container) {
 
 async function createImagesList(id, container) {
     container.innerHTML = '';
+    for (let index = 0; index < 5; index++) {
+        const animeLoading = document.createElement('div');
+        animeLoading.classList.add('animePoster--loading');
+        container.appendChild(animeLoading);    
+    }
+    
     const { data } = await api(`anime/${id}/pictures`);
     const images = data.data;
+    container.innerHTML = '';
 
     images.forEach( image => {
         const animeContainer = document.createElement('div');
@@ -125,9 +132,16 @@ async function createImagesList(id, container) {
 }
 
 async function createRecommendedList(id, container) {
-    container.innerHTML='';
+    container.innerHTML = '';
+    for (let index = 0; index < 5; index++) {
+        const animeLoading = document.createElement('div');
+        animeLoading.classList.add('animePoster--loading');
+        container.appendChild(animeLoading);    
+    }
+
     const { data } = await api(`anime/${id}/recommendations`);
     const recommendations = data.data;
+    container.innerHTML='';
 
     recommendations.forEach(anime => {
         const animeContainer = document.createElement('div');
@@ -171,9 +185,9 @@ async function getUpcomingAnimes() {
 }
 
 async function getAnimeDetail(id) {
-    animeImgContainer.innerHTML = '';
     const { data } = await api(`anime/${id}`);
     const anime = data.data;
+    animeImgContainer.innerHTML = '';
 
     const animeImg = document.createElement('img');
     animeImg.setAttribute('src', anime.images.jpg.large_image_url);
@@ -208,24 +222,20 @@ async function getAnimeDetail(id) {
     animeImgContainer.appendChild(animeImg);
     animeDetailHeader.appendChild(animeTitle);
     animeDetailHeader.appendChild(animeScore)
-    //animeInfoContainer.appendChild(animeTitle);
     animeInfoContainer.appendChild(animeDetailHeader);
     animeInfoContainer.appendChild(animeOriginalTitle);
-    //animeInfoContainer.appendChild(animeScore);
     animeInfoContainer.appendChild(animeDescription);
     animeInfoContainer.appendChild(animeGenres);
     animeInfoContainer.appendChild(animeThemes);
 }
 
-async function getAnimeSearch(query) {
-    searchAnimeList.innerHTML='';
+async function getAnimeSearch(query) {   
     const { data } = await api("anime", {
         params: {
             'q': query,
             'sfw':true,
         }
     })
-
     const animes = data.data;
 
     createTopAnimeList(animes, searchAnimeList);
